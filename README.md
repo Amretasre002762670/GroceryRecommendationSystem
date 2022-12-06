@@ -52,3 +52,9 @@ FROM
     target_products AS t ON w.zipcode = '02338'
 
 ```
+5. List the number of stores located near zipcode “01970”
+```sql
+select COUNT(distinct walmart_branch.location) as walmart_stores , count( distinct target_branch.location) as target_stores from target_branch
+inner join walmart_branch on target_branch.zipcode="01970";
+
+```
