@@ -54,7 +54,47 @@ FROM
 ```
 5. List the number of stores located near zipcode “01970”
 ```sql
-select COUNT(distinct walmart_branch.location) as walmart_stores , count( distinct target_branch.location) as target_stores from target_branch
-inner join walmart_branch on target_branch.zipcode="01970";
+SELECT 
+    COUNT(DISTINCT walmart_branch.location) AS walmart_stores,
+    COUNT(DISTINCT target_branch.location) AS target_stores
+FROM
+    target_branch
+        INNER JOIN
+    walmart_branch ON target_branch.zipcode = '01970';
 
 ```
+6. Displaying product links that have rating more than 2.0
+```sql
+SELECT 
+    product_link
+FROM
+    walmart_products
+WHERE
+    product_rating > 2.0;
+    
+ ```
+    
+7.  Display all the product link that is common in Walmart and target
+```sql
+SELECT 
+    w.product_link AS walmart_product_link,
+    t.product_link AS target_product_link
+FROM
+    walmart_products w
+        INNER JOIN
+    target_products t ON t.grocery_name = w.grocery_name;  
+   ```
+    
+  8. Displaying all the categories in target and categories that is common in target and sams club
+  ```sql
+  SELECT 
+    t.category
+FROM
+    target_products t
+        LEFT JOIN
+    samsclub_products s ON t.category = s.category;
+ ```
+    
+    
+  
+
