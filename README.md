@@ -3,6 +3,157 @@
 ```sql
 CREATE DATABASE Grocery_Recommendation_System
 ```
+```sql
+CREATE table merchant (
+merchant_id INT NOT NULL auto_increment,
+mechant_name VARCHAR(20),
+merchant_URL Varchar(50),
+primary key(merchant_id)
+);
+```
+```sql
+CREATE table walmart_branch (
+merchant_name VARCHAR(20),
+address VARCHAR(50),
+location VARCHAR(50),
+zipcode INT NOT NULL,
+contact INT NOT NULL,
+branch_id INT NOT NULL,
+merchant_id INT NOT NULL auto_increment,
+primary key(merchant_id)
+);
+```
+```sql
+CREATE table walmart_products (
+grocery_name VARCHAR(20),
+product_price INT NOT NULL,
+store VARCHAR(20),
+product_link VARCHAR(50),
+product_rating FLOAT,
+store_link VARCHAR(50),
+category VARCHAR(50),
+qty VARCHAR(10),
+name VARCHAR(50),
+availability  VARCHAR(20),
+zipcode INT NOT NULL,
+branch_id INT NOT NULL,
+prd_id INT NOT NULL auto_increment,
+primary key(prd_id)
+);
+```
+```sql
+CREATE table target_branch (
+merchant_name VARCHAR(20),
+address VARCHAR(50),
+location VARCHAR(50),
+zipcode INT NOT NULL,
+contact INT NOT NULL,
+branch_id INT NOT NULL,
+merchant_id INT NOT NULL auto_increment,
+primary key(merchant_id)
+);
+```
+```sql
+CREATE table target_products (
+grocery_name VARCHAR(20),
+product_price INT NOT NULL,
+store VARCHAR(20),
+product_link VARCHAR(50),
+product_rating FLOAT,
+store_link VARCHAR(50),
+category VARCHAR(50),
+qty VARCHAR(10),
+name VARCHAR(50),
+availability  VARCHAR(20),
+zipcode INT NOT NULL,
+branch_id INT NOT NULL,
+prd_id INT NOT NULL auto_increment,
+primary key(prd_id)
+);
+```
+```sql
+CREATE table samsclub_branch (
+merchant_name VARCHAR(20),
+address VARCHAR(50),
+location VARCHAR(50),
+zipcode INT NOT NULL,
+contact INT NOT NULL,
+branch_id INT NOT NULL,
+merchant_id INT NOT NULL auto_increment,
+primary key(merchant_id)
+);
+```
+```sql
+CREATE table samsclub_products (
+grocery_name VARCHAR(20),
+product_price INT NOT NULL,
+store VARCHAR(20),
+product_link VARCHAR(50),
+product_rating FLOAT,
+store_link VARCHAR(50),
+category VARCHAR(50),
+qty VARCHAR(10),
+name VARCHAR(50),
+availability  VARCHAR(20),
+zipcode INT NOT NULL,
+branch_id INT NOT NULL,
+prd_id INT NOT NULL auto_increment,
+primary key(prd_id)
+);
+
+```
+```sql
+CREATE table instacart_products (
+grocery_name VARCHAR(20),
+product_price INT NOT NULL,
+store VARCHAR(20),
+product_link VARCHAR(50),
+product_rating FLOAT,
+store_link VARCHAR(50),
+category VARCHAR(50),
+qty VARCHAR(10),
+name VARCHAR(50),
+availability  VARCHAR(20),
+branch_id INT NOT NULL,
+prd_id INT NOT NULL auto_increment,
+primary key(prd_id)
+);
+```
+
+```sql
+CREATE table walmart_employees(
+empid INT NOT NULL auto_increment,
+first_name VARCHAR(20),
+last_name VARCHAR(20),
+contact INT NOT NULL,
+gender VARCHAR(10),
+age INT NOT NULL,
+primary key(empid)
+);
+```
+```sql
+CREATE table samsclub_employees(
+empid INT NOT NULL auto_increment,
+first_name VARCHAR(20),
+last_name VARCHAR(20),
+contact INT NOT NULL,
+gender VARCHAR(10),
+age INT NOT NULL,
+primary key(empid)
+);
+```
+```sql
+CREATE table target_employees(
+empid INT NOT NULL auto_increment,
+first_name VARCHAR(20),
+last_name VARCHAR(20),
+contact INT NOT NULL,
+gender VARCHAR(10),
+age INT NOT NULL,
+primary key(empid)
+);
+```
+
 #### Queries to Add Constraints to the Tables:
 #### Adding Primary Keys and Unique Key:
 ```sql
@@ -212,4 +363,14 @@ from target_employees
 inner join target_emp_salary on target_employees.empid = target_emp_salary.empid
 where age > 50
 
+```
+19.Display the name and price of the products that is available in both Walmart and Target
+```sql
+SELECT w.grocery_name, w.product_price, t.product_price
+FROM walmart_products w
+INNER JOIN target_products t
+ON w.grocery_name = t.grocery_name;
+```
+20.
+```sql
 ```
