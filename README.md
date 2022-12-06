@@ -348,14 +348,14 @@ FROM
         INNER JOIN
     walmart_emp_salary ON walmart_employees.empid = walmart_emp_salary.empid
 ```
-17.Display the list of employees from instacart employees whose salary is in between 40000 and 60000
+17.Display the list of employees from target employees whose salary is in between 40000 and 60000
 ```sql
 SELECT 
     *
 FROM
-    instacart_employees
+    target_employees
         INNER JOIN
-    instacart_emp_salary ON instacart_employees.empid = instacart_emp_salary.empid
+    target_emp_salary ON target_employees.empid = target_emp_salary.empid
 WHERE
     salary BETWEEN 40000 AND 60000
 
@@ -377,6 +377,12 @@ FROM
         INNER JOIN
     target_products t ON w.grocery_name = t.grocery_name;
 ```
-20.
+20. Displaying all the grocery_name in walmart and grocery_name that is common in target and walmart
 ```sql
+SELECT 
+    w.grocery_name
+FROM
+    target_products t
+        RIGHT JOIN
+    walmart_products w ON t.grocery_name = w.grocery_name;
 ```
