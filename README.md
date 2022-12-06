@@ -384,5 +384,5 @@ SELECT
 FROM
     target_products t
         RIGHT JOIN
-    walmart_products w ON t.grocery_name = w.grocery_name;
+    walmart_products w ON w.grocery_name = t.grocery_name;
 ```
