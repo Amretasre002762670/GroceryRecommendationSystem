@@ -350,10 +350,14 @@ FROM
 ```
 17.Display the list of employees from instacart employees whose salary is in between 40000 and 60000
 ```sql
-select *
-from instacart_employees
-inner join instacart_emp_salary on instacart_employees.empid = instacart_emp_salary.empid
-where salary between 40000 and 60000
+SELECT 
+    *
+FROM
+    instacart_employees
+        INNER JOIN
+    instacart_emp_salary ON instacart_employees.empid = instacart_emp_salary.empid
+WHERE
+    salary BETWEEN 40000 AND 60000
 
 ```
 18.Increment the salary of the employees of target by $10000 whose age is greater than 50.
@@ -366,10 +370,12 @@ where age > 50
 ```
 19.Display the name and price of the products that is available in both Walmart and Target
 ```sql
-SELECT w.grocery_name, w.product_price, t.product_price
-FROM walmart_products w
-INNER JOIN target_products t
-ON w.grocery_name = t.grocery_name;
+SELECT 
+    w.grocery_name, w.product_price, t.product_price
+FROM
+    walmart_products w
+        INNER JOIN
+    target_products t ON w.grocery_name = t.grocery_name;
 ```
 20.
 ```sql
