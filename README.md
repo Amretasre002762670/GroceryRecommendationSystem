@@ -97,18 +97,8 @@ FROM
     walmart_branch ON target_branch.zipcode = '01970';
 
 ```
-6. Displaying product links that have rating more than 2.0
-```sql
-SELECT 
-    product_link
-FROM
-    walmart_products
-WHERE
-    product_rating > 2.0;
-    
- ```
-    
-7.  Display all the product link that is common in Walmart and target
+
+6.  Display all the product link that is common in Walmart and target
 ```sql
 SELECT 
     w.product_link AS walmart_product_link,
@@ -119,7 +109,7 @@ FROM
     target_products t ON t.grocery_name = w.grocery_name;  
    ```
     
-  8. Displaying all the categories in target and categories that is common in target and sams club
+  7. Displaying all the categories in target and categories that is common in target and sams club
   ```sql
   SELECT 
     t.category
@@ -128,7 +118,52 @@ FROM
         LEFT JOIN
     samsclub_products s ON t.category = s.category;
  ```
+ 8. Displaying product links that have rating more than 2.0
+```sql
+SELECT 
+    product_link
+FROM
+    walmart_products
+WHERE
+    product_rating > 2.0;
     
+ ```
+ 9.Display all female employees in target and Walmart    
+```sql
+SELECT 
+    w.first_name, t.first_name
+FROM
+    walmart_employees w,
+    target_employees t
+WHERE
+    w.gender = 'Female'
+        AND t.gender = 'Female'
+ORDER BY w.emp_id , t.emp_id;
     
-  
+ ```
+10. Display the total count of Diary products in target
+```sql
+SELECT 
+    COUNT(grocery_name)
+FROM
+    target_products
+WHERE
+    category = 'Diary';
+```
 
+11.Display the list of products and its price which is available in both Instacart and target
+```sql
+SELECT 
+    t.grocery_name, t.product_price
+FROM
+    target_products t
+        INNER JOIN
+    instacart_products i ON i.grocery_name = t.grocery_name;
+```
+
+12.Display the product link of products available for delivery on Dec 8th in Instacart
+```sql
+SELECT product_link 
+FROM instacart_products
+WHERE distance LIKE "%Delivery by Thu%";
+```
