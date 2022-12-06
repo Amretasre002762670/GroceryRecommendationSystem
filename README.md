@@ -40,3 +40,15 @@ FROM
     samsclub_products AS s ON w.grocery_name = s.grocery_name
 
 ```
+4. List the groceries at target and walmart at 02338
+```sql
+SELECT 
+    w.name AS walmart_groceries,
+    t.name AS target_groceries,
+    w.zipcode
+FROM
+    walmart_products AS w
+        JOIN
+    target_products AS t ON w.zipcode = '02338'
+
+```
