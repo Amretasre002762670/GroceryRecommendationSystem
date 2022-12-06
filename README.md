@@ -303,10 +303,12 @@ WHERE
 ```
 11.Get the address that has both Sam's club and Target
 ```sql
-SELECT t.address
-FROM target_branch t
-INNER JOIN samsclub_branch s
-ON t.zipcode = s.zipcode;
+SELECT 
+    t.address
+FROM
+    target_branch t
+        INNER JOIN
+    samsclub_branch s ON t.zipcode = s.zipcode;
 ```
 12.Display the list of products and its price which is available in both Instacart and target
 ```sql
@@ -320,24 +322,32 @@ FROM
 
 13.Display the product link of products available for delivery on Dec 8th in Instacart
 ```sql
-SELECT product_link 
-FROM instacart_products
-WHERE distance LIKE "%Delivery by Thu%";
+SELECT 
+    product_link
+FROM
+    instacart_products
+WHERE
+    distance LIKE '%Delivery by Thu%';
 ```
 
 14.Get the URL for Sam's Club
 ```sql
-SELECT merchant_url
-FROM merchant
-WHERE mechant_name LIKE "%Sam%";
+SELECT 
+    merchant_url
+FROM
+    merchant
+WHERE
+    mechant_name LIKE '%Sam%';
 ```
 
 15.Get the address in which both Walmart and Target is Located
 ```sql
-SELECT w.address
-FROM walmart_branch w
-INNER JOIN target_branch t
-ON w.zipcode = t.zipcode;
+SELECT 
+    w.address
+FROM
+    walmart_branch w
+        INNER JOIN
+    target_branch t ON w.zipcode = t.zipcode;
 ```
 16.	Display the employee details of walmart employees
 ```sql
@@ -362,10 +372,17 @@ WHERE
 ```
 18.Increment the salary of the employees of target by $10000 whose age is greater than 50.
 ```sql
-select first_name, salary,  bonus = 10000, new_salary = salary + 10000 
-from target_employees
-inner join target_emp_salary on target_employees.empid = target_emp_salary.empid
-where age > 50
+SELECT 
+    first_name,
+    salary,
+    bonus = 10000,
+    new_salary = salary + 10000
+FROM
+    target_employees
+        INNER JOIN
+    target_emp_salary ON target_employees.empid = target_emp_salary.empid
+WHERE
+    age > 50
 
 ```
 19.Display the name and price of the products that is available in both Walmart and Target
@@ -384,5 +401,5 @@ SELECT
 FROM
     target_products t
         RIGHT JOIN
-    walmart_products w ON w.grocery_name = t.grocery_name;
+    walmart_products w ON t.grocery_name = w.grocery_name;
 ```
