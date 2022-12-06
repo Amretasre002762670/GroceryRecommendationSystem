@@ -150,8 +150,14 @@ FROM
 WHERE
     category = 'Diary';
 ```
-
-11.Display the list of products and its price which is available in both Instacart and target
+11.Get the address that has both Sam's club and Target
+```sql
+SELECT t.address
+FROM target_branch t
+INNER JOIN samsclub_branch s
+ON t.zipcode = s.zipcode;
+```
+12.Display the list of products and its price which is available in both Instacart and target
 ```sql
 SELECT 
     t.grocery_name, t.product_price
@@ -161,9 +167,24 @@ FROM
     instacart_products i ON i.grocery_name = t.grocery_name;
 ```
 
-12.Display the product link of products available for delivery on Dec 8th in Instacart
+13.Display the product link of products available for delivery on Dec 8th in Instacart
 ```sql
 SELECT product_link 
 FROM instacart_products
 WHERE distance LIKE "%Delivery by Thu%";
+```
+
+14.Get the URL for Sam's Club
+```sql
+SELECT merchant_url
+FROM merchant
+WHERE mechant_name LIKE "%Sam%";
+```
+
+15.Get the address in which both Walmart and Target is Located
+```sql
+SELECT w.address
+FROM walmart_branch w
+INNER JOIN target_branch t
+ON w.zipcode = t.zipcode;
 ```
