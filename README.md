@@ -413,3 +413,7 @@ FROM
         RIGHT JOIN
     walmart_products w ON t.grocery_name = w.grocery_name;
 ```
+#### We have visualized data for auditing the quality and understanding the gathered data 
+![image](https://user-images.githubusercontent.com/54211989/205815622-ddcdb9d2-5c37-44e7-aa13-e2f3c8f59441.png)
+
+![image](https://user-images.githubusercontent.com/54211989/205815671-a3b30260-425c-400c-9129-2b024d2d2e72.png)
