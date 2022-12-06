@@ -8,7 +8,9 @@ Dharma Thanishq Nimmala.
 
 **Introduction:**
 
-This database contains the grocery product details sold through various merchants like walmart, target, instacart and samsclub. Data have been scrapped from google using various parameters based on the retailer. The tables have been split into user merchant data and employee data. The merchant data is split into merchant details, merchant branch and merchant product. The employee data is split into employee details and employee salary. Each merchant will have a unique zipcode, similarly, each employee will have a unique employee id. The tables have been designed concerning these ids. The URLs, zipcodes and product links have been added to different tables for each retailer.
+The Grocery_Recommendation_System database contains data on all the products available in merchants such as Walmart, Target, Samsclub, and the online delivery application Instacart. This data has been web scrapped from the Google Shopping web platform which includes millions of products from various merchants. The merchant table contains these merchant details along with their web URLs. The product tables contain columns such as product name, price, product inks, ratings, location in terms of zip code, etc.
+The Branch table data have been scrapped from the "Yellow Pages" website which contains the address and zip codes of all the merchant locations that is available in Boston City. The generated Employee tables contain data concerning employee data such as employee id, first_name, last_name, and age for the selected merchants.
+
 #### Queries to Create Tables:
 ```sql
 CREATE DATABASE Grocery_Recommendation_System
