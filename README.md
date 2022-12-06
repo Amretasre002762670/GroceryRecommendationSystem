@@ -1,5 +1,21 @@
 # Assignment 3 - Gathering, Scraping, Munging and Cleaning Data
 
+
+#### Queries to Add Constraints to the Tables:
+#### Adding Primary Keys and Unique Key:
+```sql
+ALTER TABLE Grocery_Recommendation_System.merchant ADD merchant_id INT NOT NULL AUTO_INCREMENT, ADD CONSTRAINT PRIMARY KEY(merchant_id);
+ALTER TABLE Grocery_Recommendation_System.merchant ADD CONSTRAINT `Merchant_id` UNIQUE (merchant_id);
+
+ALTER TABLE walmart_branch ADD COLUMN branch_id INT NOT NULL AUTO_INCREMENT, ADD CONSTRAINT PRIMARY KEY(branch_id);
+ALTER TABLE walmart_branch ADD CONSTRAINT `Branch_id` UNIQUE (branch_id);
+ALTER TABLE Grocery_Recommendation_System.walmart_branch ADD COLUMN merchant_id INT;
+UPDATE Grocery_Recommendation_System.walmart_branch SET merchant_id = 1
+
+ALTER TABLE Grocery_Recommendation_System.target_branch ADD COLUMN branch_id INT NOT NULL AUTO_INCREMENT, ADD CONSTRAINT PRIMARY KEY(branch_id);
+ALTER TABLE Grocery_Recommendation_System.target_branch ADD CONSTRAINT `Branch_id` UNIQUE (branch_id);
+```
+
 #### Use Cases:
 
 1. Compare the price of variaties of mangoes available in Walmart and target
