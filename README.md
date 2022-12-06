@@ -1,6 +1,8 @@
 # Assignment 3 - Gathering, Scraping, Munging and Cleaning Data
-
-
+#### Queries to Create Tables:
+```sql
+CREATE DATABASE Grocery_Recommendation_System
+```
 #### Queries to Add Constraints to the Tables:
 #### Adding Primary Keys and Unique Key:
 ```sql
