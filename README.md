@@ -188,3 +188,28 @@ FROM walmart_branch w
 INNER JOIN target_branch t
 ON w.zipcode = t.zipcode;
 ```
+16.	Display the employee details of walmart employees
+```sql
+SELECT 
+    *
+FROM
+    walmart_employees
+        INNER JOIN
+    walmart_emp_salary ON walmart_employees.empid = walmart_emp_salary.empid
+```
+17.Display the list of employees from instacart employees whose salary is in between 40000 and 60000
+```sql
+select *
+from instacart_employees
+inner join instacart_emp_salary on instacart_employees.empid = instacart_emp_salary.empid
+where salary between 40000 and 60000
+
+```
+18.Increment the salary of the employees of target by $10000 whose age is greater than 50.
+```sql
+select first_name, salary,  bonus = 10000, new_salary = salary + 10000 
+from target_employees
+inner join target_emp_salary on target_employees.empid = target_emp_salary.empid
+where age > 50
+
+```
